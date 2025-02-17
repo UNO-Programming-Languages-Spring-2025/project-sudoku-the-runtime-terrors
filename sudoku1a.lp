@@ -12,4 +12,7 @@ col(1..4).
 row(1..4).
 num(1..4).
 
+% Making sure each cell has only one number
+{ sudoku(X, Y, N) : num(N) = 1 :- col(X), row(Y).
+
 #show sudoku/3.
