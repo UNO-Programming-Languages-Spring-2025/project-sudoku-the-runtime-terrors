@@ -15,4 +15,10 @@ num(1..4).
 % Making sure each cell has only one number
 { sudoku(X, Y, N) : num(N) = 1 :- col(X), row(Y).
 
+% Making sure each number shows up in each column
+:- sudoku(X1, Y, N), sudoku(X2, Y, N), X1 != X2.
+
+% Making sure each number shows up in each row
+:- sudoku(X, Y1, N), sudoku(X, Y2, N), Y1 != Y2.
+
 #show sudoku/3.
