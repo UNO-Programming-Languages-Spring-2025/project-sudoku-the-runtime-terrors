@@ -13,7 +13,7 @@ row(1..4).
 num(1..4).
 
 % Making sure each cell has only one number
-1 { sudoku(X, Y, N) : num(N) = 1 :- col(X), row(Y).
+1 { sudoku(X, Y, N) : num(N) } = 1 :- col(X), row(Y).
 
 % Making sure each number shows up in each column
 :- sudoku(X1, Y, N), sudoku(X2, Y, N), X1 != X2.
