@@ -14,7 +14,7 @@ cell(X, Y) :- X = 1..n, Y = 1..n.
 { sudoku(X, Y, N) : N = 1..n } = 1 :- cell(X, Y).
 
 % Setting the initial state of the grid (initial(X,Y,N). % initially cell [X,Y] contains number N)
-N1 = N2 :- sudoku(X1, Y1, N1), initial(X2, Y2, N2), X1 = X2, Y1 = Y2.
+sudoku(X, Y, N) :- initial(X, Y, N).
 
 % Making sure each column has a unique number
 :- sudoku(X1, Y, N), sudoku(X2, Y, N), X1 != X2.
