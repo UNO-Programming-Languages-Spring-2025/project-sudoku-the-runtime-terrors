@@ -5,15 +5,13 @@
 % A cell (x,y) can be mapped to the subgrid labeled 1+(((x-1)/n)*n+(y-1)/n)
 
 % Setting the sudoku board size
-size(4).
+#const n = 4.
 
-% Setting the columns, rows, and numbers (in each cell)
-col(1..4).
-row(1..4).
-num(1..4).
+% Setting up the cells in a 4x4 board
+cell(X, Y) :- X = 1..n, Y = 1..n.
 
 % Making sure each cell has only one number
-1 { sudoku(X, Y, N) : num(N) } = 1 :- col(X), row(Y).
+{ sudoku(X, Y, N) : N = 1..n } = 1 :- cell(X, Y).
 
 % Making sure each number shows up in each column
 :- sudoku(X1, Y, N), sudoku(X2, Y, N), X1 != X2.
